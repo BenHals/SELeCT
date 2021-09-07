@@ -3,7 +3,11 @@ Learning from streaming data requires handling changes in distribution, known as
 
 The SELeCT framework uses a Bayesian approach to assign each classifier a probability of representing a similar distribution to incoming data, combining a prior probability based on the current state of the system with the likelihood of drawing recent observations. A continuous selection procedure based on the Hoeffding bound ensures that each observation is classified by the classifier trained on the most similar distribution. SELeCT achieves accuracies up to 7% higher than the standard framework, with  classifier use matching ground truth concept dynamics with over 90% recall and precision. 
 
-![Concept Similarity](https://github.com/BenHals/SELeCT/raw/master/ConceptSimilarity.png)
+<!-- ![Concept Similarity](https://github.com/BenHals/SELeCT/raw/master/ConceptSimilarity.png)
+![Concept Similarity](https://github.com/BenHals/SELeCT/raw/master/AD-priors.png)
+![Concept Similarity](https://github.com/BenHals/SELeCT/raw/master/AD-likelihood.png) -->
+This figure shows how the probabilities of each classifier change over time. Notice that recurring concepts trigger resurgences in the probability of the classifier used on the last occurence.
+![State Probabilities](https://github.com/BenHals/SELeCT/raw/master/AD-posterior.png)
 # Implementation
 
 The SELeCT framework retains the representation of concepts as states, and the overall aim of selecting the optimal state to handle each observation, but reformulates drift detection and re-identification as a continuous, probabilistic selection procedure. SELeCT solves the issue of sparse evaluations of states by providing a full probability distribution for all states at every observation and guarantees that the selected state is the optimal achievable state.
