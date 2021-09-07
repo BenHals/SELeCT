@@ -1,0 +1,33 @@
+*.cpython
+*.pyc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Tooling
+.vscode
+coverage.xml
+.coverage
+/coverage
+/htmlcov
+*.egg-info
+
+# external datasets and code
+external/*
+RawData/Real/*/seeds/*
+RawData/Synthetic/*/*
+src/*
+
+# Output
+output/*
+experimentlog/*
+profile.txt
+mprofile*
+memory-profile*
+tests/testlog/
+tests/testoutput/
+evaluation/explore_probabilities/*
+demo/demo.log
+
+
