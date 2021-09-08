@@ -6,12 +6,11 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="SELeCT",
     version="0.0.2",
-    author="Ben",
+    author="",
     author_email="",
     description="real-time lifelong machine learning",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # url="https://github.com/BenHals/SELeCT",
     packages=['SELeCT'],
     classifiers=[
         "Programming Language :: Python :: 3",

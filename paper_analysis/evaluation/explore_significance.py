@@ -296,7 +296,6 @@ experiment_name = "BaseL3_wAblation"
 
 base_path = pathlib.Path(__file__).absolute().parents[1] / 'output' / experiment_name
 # base_path = pathlib.Path("//TOMSK/shared_results") / experiment_name
-# base_path = pathlib.Path(r"C:\Users\Ben\Documents\shared_results") / experiment_name
 
 # experiment_name = "TV8-4-nopacf"
 # experiment_name = "TV8-12-7-nopacf"
