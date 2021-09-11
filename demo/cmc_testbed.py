@@ -11,6 +11,10 @@ if __name__ == "__main__":
     my_parser.add_argument('--run_minimal', action='store_true')
     args = my_parser.parse_args()
 
+    file_path = pathlib.Path(__file__).resolve()
+    main_dir = file_path.parents[1]
+
+
     # Run experiment
     seeds = ' '.join(map(str, (range(1, 46) if not args.run_minimal else range(1, 5))))
     # Options are:
@@ -23,12 +27,11 @@ if __name__ == "__main__":
     # TREE -> 'RTREESAMPLE_HARD' 
     # WIND -> 'WINDSIM' 
     dataset = args.dataset
-    cmd_str = f'python ../run_experiment.py --forcegitcheck --seeds {seeds} --seedaction list --datalocation ../RawData --datasets {dataset} --experimentname cmc_testbed {"--single" if args.cpus <= 1 else "--cpu " + str(args.cpus)} --outputlocation ../output --loglocation ../experimentlog'
+    cmd_str = f'python {str((main_dir / "run_experiment.py").absolute())} --forcegitcheck --seeds {seeds} --seedaction list --datalocation {str((main_dir / "RawData").absolute())} --datasets {dataset} --experimentname cmc_testbed {"--single" if args.cpus <= 1 else "--cpu " + str(args.cpus)} --outputlocation {str((main_dir / "output").absolute())} --loglocation {str((main_dir / "experimentlog").absolute())}'
     os.system(f'{cmd_str}')
 
     # Collect results
-    file_path = pathlib.Path(__file__)
-    output = file_path.resolve().parents[1] / 'output' / 'cmc_testbed'
+    output = main_dir / 'output' / 'cmc_testbed'
     results_files = list(output.rglob('results*'))
     results = []
     for rp in results_files:
