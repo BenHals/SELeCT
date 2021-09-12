@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # TREE -> 'RTREESAMPLE_HARD' 
     # WIND -> 'WINDSIM' 
     dataset = args.dataset
-    cmd_str = f'python {str((main_dir / "run_experiment.py").absolute())} --forcegitcheck --seeds {seeds} --seedaction list --datalocation {str((main_dir / "RawData").absolute())} --datasets {dataset} --experimentname cmc_testbed {"--single" if args.cpus <= 1 else "--cpu " + str(args.cpus)} --outputlocation {str((main_dir / "output").absolute())} --loglocation {str((main_dir / "experimentlog").absolute())}'
+    cmd_str = f'python "{str((main_dir / "run_experiment.py").absolute())}" --forcegitcheck --seeds {seeds} --seedaction list --datalocation "{str((main_dir / "RawData").absolute())}" --datasets {dataset} --experimentname cmc_testbed {"--single" if args.cpus <= 1 else "--cpu " + str(args.cpus)} --outputlocation "{str((main_dir / "output").absolute())}" --loglocation "{str((main_dir / "experimentlog").absolute())}"'
     os.system(f'{cmd_str}')
 
     # Collect results

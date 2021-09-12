@@ -13,6 +13,7 @@ For each state, SELeCT computes the probability that the state is optimal for th
 
 ## Instructions to Run
 0. Using python 3.7, install requirements using `pip install -r requirements.txt`
+- Install SELeCT module with `pip install -e .` run inside the SELeCT-master directory.
 1. (Optional) Place desired datasets into the `RawData` directory. This is expected to contain `Real` and `Synthetic` subdirectories. These should each contain a directory for each data set to be tested on. The expected format for these is a `.csv` file for each ground truth context. The system will work with only a single `.csv` if context is unknown, but some evaluation measures will not be able to be calculated. For synthetic datasets created with a known generator, an empty directory in the `Synthetic` directory is needed to store files. Each dataset folder should be named the name you will use to call it. The base data directory should be passed as the `--datalocation` commandline argument. The dataset name is passed in the `--datasets` argument. New datasets will need to be added to the relevent list of allowed datasets in `run_experiment.py`, `synthetic_MI_datasets` for `Synthetic` datasets, or `real_drift_datasets` for `Real` datasets.
 2. Run code for demos, discussed below.
 3. Run main entry point, `run_experiment.py`. Set commandline arguments. Most are set to reasonable defaults. 
